@@ -5,7 +5,43 @@
 <main>
 
     <div>
-        <a href="../administracion"><input type="button" value="Atrás" class="btn btn-lg" style="margin-left: 10%;"/></a>
+        <a href="../administracion"><input type="button" value="Atrás" class="btn btn-lg"
+                style="margin-left: 10%;" /></a>
+    </div>
+
+    <div class="form-box">
+        <div class="form-box-mini">
+            <form action="add_producto" method="POST">
+                {% csrf_token %}
+                <p>Nombre:</p>
+                <input type="name" name="nombre_producto">
+                <p>Categoria:</p>
+                <input type="name" name="categoria">
+                <p>Codigo de Barras:</p>
+                <input type="number" name="barcode">
+                <p>Precio:</p>
+                <input type="number" name="precio">
+                <p>Stock:</p>
+                <input type="number" name="stock">
+
+                <div class="btn-submit">
+                    <input type="submit" value="Enviar" class="btn-submit">
+
+                </div>
+            </form>
+        </div>
+
+        <div class="form-box-mini">
+            <form action="buscar_prod" method="GET">
+
+                <p>Buscar por Nombre</p>
+                <input type="name" name="nombre_producto" id="nombre_producto">
+                <input type="submit" value="Buscar">
+
+            </form>
+
+        </div>
+    </div>
     </div>
 
 

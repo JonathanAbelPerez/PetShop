@@ -32,7 +32,7 @@ def ver_empleados(request):
     return HttpResponse(documento)
 
 
-"""---------EMPLEADOS------------"""
+"""------------------------------------EMPLEADOS----------------------------------"""
 
 
 def add_empleado(request):
@@ -71,7 +71,7 @@ def buscar_emp(request):
         return HttpResponse("datos incorrectos")
 
 
-"""---------Clientes-----------"""
+"""--------------------------------------Clientes------------------------------------"""
 
 
 def add_cliente(request):
@@ -97,7 +97,7 @@ def buscar_client(request):
         return render(request, "busqueda_client.html", {"clientes": cliente})
 
 
-"""----------PRODUCTOS----------- """
+"""----------------------------------------PRODUCTOS------------------------------------------- """
 
 
 def add_producto(request):
@@ -108,8 +108,8 @@ def add_producto(request):
         if mi_formulario.is_valid():
             datos = mi_formulario.cleaned_data
             print(datos)
-            producto = Producto(nombre_producto=datos['nombre'], categoria=datos['categoria'],
-                                barcode=datos['barcode'], precio=datos['precio'], stock=['stock'])
+            producto = Producto(nombre_producto=datos['nombre_producto'], categoria=datos['categoria'],
+                                barcode=datos['barcode'], precio=datos['precio'], stock=datos['stock'])
             producto.save()
 
         return render(request, "productos.html")
@@ -120,7 +120,7 @@ def add_producto(request):
 def buscar_prod(request):
     comprobar = request.GET
     if 'nombre_producto' in comprobar.keys():
-        producto = Empleados.objects.filter(
+        producto = Producto.objects.filter(
             nombre_producto__icontains=comprobar)
         print(producto)
         return render(request, "busqueda_prod.html", {"productos": producto})
