@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+<body>
+    
+
+{% if empleados %}
+<ul>
+{% for empleados in empleados %}
+    <li>{{empleados.nombre}}</li>
+    <li>{{empleados.apellido}}</li>
+{% endfor %}
+</ul>
+{% else %}
+    <p>no se encontro</p>
+{% endif %}
+
+</body>
+
+{%endblock%}

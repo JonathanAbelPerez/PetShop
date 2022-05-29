@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+<body>
+    
+
+{% if productos %}
+<ul>
+{% for productos in productos %}
+    <li>{{productos.nombre}}</li>
+    <li>{{productos.categoria}}</li>
+{% endfor %}
+</ul>
+{% else %}
+    <p>no se encontro</p>
+{% endif %}
+
+</body>
+
+{%endblock%}

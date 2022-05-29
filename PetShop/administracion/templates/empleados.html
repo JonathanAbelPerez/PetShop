@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+<main>
+    <div>
+        <div class="box-btn" style="margin-left: 10%;">
+            <a href="../administracion"><input type="button" value="Atrás" class="btn btn-lg" /></a>
+        </div>
+
+        <div class="form-box">
+            <div class="form-box-mini">
+                <form action="add_empleado" method="POST">
+                    {% csrf_token %}
+                    <p>Nombre:</p>
+                    <input type="name" name="nombre">
+                    <p>Apellido:</p>
+                    <input type="name" name="apellido">
+                    <p>DNI:</p>
+                    <input type="number" name="dni">
+                    <div class="btn-submit">
+                        <input type="submit" value="Enviar" class="btn-submit">
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="form-box-mini">
+                <form action="buscar_emp" method="GET">
+
+                    <p>Buscar por Nombre</p>
+                    <input type="name" name="nombre" id="nombre">
+                    <input type="submit" value="Buscar">
+
+                </form>
+
+                <form action="buscar_emp" method="GET">
+
+                    <p>Buscar por Apellido</p>
+                    <input type="name" name="apellido" id="apellido">
+                    <input type="submit" value="Buscar">
+
+                </form>
+
+                <form action="buscar_emp" method="GET">
+
+                    <p>Buscar por DNI</p>
+                    <input type="number" name="dni" id="dni">
+                    <input type="submit" value="Buscar">
+
+                </form>
+            </div>
+        </div>
+
+        <div class="btn btn-lg justify-content-center">
+            <a href="{%url 'ver_empleados'%}"> Ver lista completa de empleados </a>
+        </div>
+
+
+
+    </div>
+</main>
+
+{% endblock %}

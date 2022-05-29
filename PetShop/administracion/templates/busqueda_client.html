@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+<body>
+
+
+    {% if clientes %}
+    <ul>
+        {% for clientes in clientes %}
+        <li>{{clientes.nombre}}</li>
+        <li>{{clientes.contacto_mail}}</li>
+        <li>{{clientes.contacto_tel}}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>no se encontro</p>
+    {% endif %}
+
+</body>
+
+{%endblock%}

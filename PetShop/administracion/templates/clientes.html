@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+<main>
+    <div>
+        <a href="../administracion"><input type="button" value="Atrás" class="btn btn-lg"
+                style="margin-left: 10%;" /></a>
+        <div class="container">
+            <div class="row col-auto">
+                <form action="add_cliente" method="POST">
+                    {% csrf_token %}
+                    <p>Nombre:</p>
+                    <input type="name" name="nombre">
+                    <p>E-Mail:</p>
+                    <input type="text" name="contacto_mail">
+                    <p>Telefono:</p>
+                    <input type="text" name="contacto_tel">
+
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+
+
+            <div class="row col-auto">
+                <form action="buscar_client" method="GET">
+
+                    <p>Buscar por Nombre</p>
+                    <input type="name" name="nombre" id="nombre">
+                    <input type="submit" value="Buscar">
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+
+{% endblock %}

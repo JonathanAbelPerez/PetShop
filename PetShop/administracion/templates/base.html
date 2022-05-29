@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administracion</title>
+    <link rel="stylesheet" href="../static/administracion/css/styles.css">
+</head>
+
+<body>
+
+    <header class="modal-header">
+        <div class="container position-relative">
+            <a href="../"><input type="button" value="Salir" class="btn btn-lg" /></a>
+
+            <div class="row justify content-center">
+                <div class="text-center">
+                    <h1>Administracion</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% block contenido %}
+
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <div class="card" style="width: 18rem;">
+
+                        <img src="{% static 'administracion/assets/img/images.jpg ' %}" class="card-img-top" alt="...">
+                        <div class="card-body" style="max-width: 18rem;">
+                            <div class="row justify content-center">
+                                <a href="{% url 'empleados' %}" class="btn btn-primary">Empleados</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-auto">
+                    <div class="card" style="width: 18rem;">
+
+                        <img src="{% static 'administracion/assets/img/cliente.png ' %}" class="card-img-top" alt="...">
+
+                        <div class="card-body">
+                            <div class="row justify content-center">
+                                <a href="{% url 'clientes' %}" class="btn btn-primary">Clientes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="card" style="width: 18rem;">
+
+                        <img src="{% static 'administracion/assets/img/productos.png ' %}" class="card-img-top"
+                            alt="...">
+                        <div class="card-body">
+                            <div class="row justify content-center">
+                                <a href="{% url 'productos' %}" class="btn btn-primary">Productos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {%endblock%}
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+<body>
+    <a href="../administracion/empleados"><input type="button" value="Atrás" class="btn btn-lg"
+            style="margin-left: 10%;" /></a>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">apellido</th>
+                            <th scope="col">dni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for n in empleados %}
+                        <tr>
+                            <th scope="row">{{n.id}}</th>
+                            <td>{{n.nombre}}</td>
+                            <td>{{n.apellido}}</td>
+                            <td>{{n.dni}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
