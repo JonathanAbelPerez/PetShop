@@ -55,17 +55,14 @@ def add_empleado(request):
 
 def buscar_emp(request):
     comprobar = request.GET
-    print(comprobar)
     if 'nombre' in comprobar.keys():
-        print("llegamos", comprobar)
-        empleado = Empleados.objects.filter(nombre__icontains=comprobar)
-        print(empleado)
+        empleado = Empleados.objects.filter(nombre__icontains=comprobar['nombre'])
         return render(request, "busqueda_emp.html", {"empleados": empleado})
     elif 'apellido' in comprobar.keys():
-        empleado = Empleados.objects.filter(apellido__icontains=comprobar)
+        empleado = Empleados.objects.filter(apellido__icontains=comprobar['apellido'])
         return render(request, "busqueda_emp.html", {"empleados": empleado})
     elif 'dni' in comprobar.keys():
-        empleado = Empleados.objects.filter(dni__icontains=comprobar)
+        empleado = Empleados.objects.filter(dni__icontains=comprobar['dni'])
         return render(request, "busqueda_emp.html", {"empleados": empleado})
     else:
         return HttpResponse("datos incorrectos")
@@ -93,7 +90,7 @@ def add_cliente(request):
 def buscar_client(request):
     comprobar = request.GET
     if 'nombre' in comprobar.keys():
-        cliente = Clientes.objects.filter(nombre__icontains=comprobar)
+        cliente = Clientes.objects.filter(nombre__icontains=comprobar['nombre'])
         return render(request, "busqueda_client.html", {"clientes": cliente})
 
 
@@ -121,6 +118,6 @@ def buscar_prod(request):
     comprobar = request.GET
     if 'nombre_producto' in comprobar.keys():
         producto = Producto.objects.filter(
-            nombre_producto__icontains=comprobar)
+            nombre_producto__icontains=comprobar['nombre_producto'])
         print(producto)
         return render(request, "busqueda_prod.html", {"productos": producto})
